@@ -745,6 +745,468 @@
 
     <!-- More activities would be added here... -->
 
+    <!-- Calculator Workshop -->
+    <div id="calculator-workshop" class="activity-page">
+        <div class="container">
+            <div class="activity-header">
+                <button class="back-btn" onclick="showDashboard()">🏠</button>
+                <h2>Calculator Workshop</h2>
+            </div>
+            
+            <div class="two-column">
+                <div class="activity-content">
+                    <h3>Choose Method</h3>
+                    
+                    <button class="btn btn-primary" id="method-prime" onclick="setMethod('prime')" style="width: 100%; margin-bottom: 10px;">
+                        Prime Factorization
+                    </button>
+                    <button class="btn" id="method-long" onclick="setMethod('long')" style="width: 100%; margin-bottom: 10px;">
+                        Long Division Method
+                    </button>
+                    <button class="btn" id="method-estimation" onclick="setMethod('estimation')" style="width: 100%; margin-bottom: 20px;">
+                        Estimation Method
+                    </button>
+
+                    <div class="input-group">
+                        <label>Target Number:</label>
+                        <input type="number" id="target-number" value="144" onchange="updateMethodDemo()">
+                    </div>
+                </div>
+
+                <div class="activity-content">
+                    <h3 id="method-title">Prime Factorization for √144</h3>
+                    
+                    <ol class="method-steps" id="method-steps">
+                        <li>Find prime factors of 144</li>
+                        <li>144 = 2⁴ × 3²</li>
+                        <li>Group into pairs: (2²)² × (3¹)²</li>
+                        <li>Take one from each pair: 2² × 3 = 12</li>
+                        <li>√144 = 12</li>
+                    </ol>
+
+                    <button class="btn btn-primary" onclick="addXP(20)">Practice This Method</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Construction Studio -->
+    <div id="construction-studio" class="activity-page">
+        <div class="container">
+            <div class="activity-header">
+                <button class="back-btn" onclick="showDashboard()">🏠</button>
+                <h2>Construction & Design Studio</h2>
+            </div>
+            
+            <div class="two-column">
+                <div class="activity-content">
+                    <h3>Project Selection</h3>
+                    
+                    <button class="btn btn-primary" id="project-garden" onclick="setProject('garden')" style="width: 100%; margin-bottom: 10px;">
+                        Square Garden Plot
+                    </button>
+                    <button class="btn" id="project-room" onclick="setProject('room')" style="width: 100%; margin-bottom: 10px;">
+                        Square Room Tiles
+                    </button>
+                    <button class="btn" id="project-frame" onclick="setProject('frame')" style="width: 100%; margin-bottom: 20px;">
+                        Photo Frame Design
+                    </button>
+
+                    <div class="input-group">
+                        <label>Total Area (sq meters):</label>
+                        <input type="number" id="construction-area" value="100" onchange="calculateDimensions()">
+                    </div>
+
+                    <button class="btn btn-primary" onclick="calculateDimensions()">Calculate Dimensions</button>
+                </div>
+
+                <div class="activity-content">
+                    <h3>Design Results</h3>
+                    
+                    <div id="construction-results">
+                        <div class="feedback info">
+                            <strong>Square Dimensions:</strong><br>
+                            <span id="side-length">10.00 × 10.00</span><br>
+                            <small>Side length: <span id="side-value">10.00</span> units</small>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <div style="width: 150px; height: 150px; border: 4px solid #06b6d4; background: #cffafe; margin: 0 auto; position: relative; display: flex; align-items: center; justify-content: center;">
+                                <div style="text-align: center;">
+                                    <div style="font-weight: bold;" id="area-display">100</div>
+                                    <div style="font-size: 0.8rem;">sq units</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pattern Explorer -->
+    <div id="pattern-explorer" class="activity-page">
+        <div class="container">
+            <div class="activity-header">
+                <button class="back-btn" onclick="showDashboard()">🏠</button>
+                <h2>Pattern Explorer Lab</h2>
+            </div>
+            
+            <div class="activity-content">
+                <div style="margin-bottom: 20px;">
+                    <button class="btn btn-primary" id="pattern-algebraic" onclick="setPattern('algebraic')" style="margin-right: 10px;">
+                        (a+b)² Pattern
+                    </button>
+                    <button class="btn" id="pattern-endings" onclick="setPattern('endings')" style="margin-right: 10px;">
+                        Square Endings
+                    </button>
+                    <button class="btn" id="pattern-geometric" onclick="setPattern('geometric')">
+                        Geometric Patterns
+                    </button>
+                </div>
+
+                <div id="algebraic-pattern">
+                    <h3>Explore: (a+b)² = a² + 2ab + b²</h3>
+                    
+                    <div class="two-column">
+                        <div>
+                            <div class="input-group">
+                                <label>Value of a:</label>
+                                <input type="number" id="pattern-a" value="3" onchange="updateAlgebraicPattern()">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>Value of b:</label>
+                                <input type="number" id="pattern-b" value="2" onchange="updateAlgebraicPattern()">
+                            </div>
+
+                            <div class="feedback success" id="pattern-calculation">
+                                <div>Left side: (3+2)² = <strong>25</strong></div>
+                                <div>Right side: 3² + 2(3)(2) + 2² = 9 + 12 + 4 = <strong>25</strong></div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.2rem; margin-bottom: 10px;">Visual Representation</div>
+                            <div id="algebraic-visual" style="display: inline-grid; gap: 1px; grid-template-columns: repeat(5, 20px);">
+                                <!-- Grid will be generated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="endings-pattern" style="display: none;">
+                    <h3>Square Number Endings Pattern</h3>
+                    
+                    <div class="feedback info">
+                        <strong>Discovery:</strong> Perfect squares can only end in: 0, 1, 4, 5, 6, 9
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-top: 20px;">
+                        <div style="text-align: center; padding: 15px; border: 2px solid #6366f1; border-radius: 8px;">
+                            <div style="font-weight: bold;">1²</div>
+                            <div style="font-size: 1.5rem; color: #6366f1;">1</div>
+                            <div style="font-size: 0.8rem;">Ends in 1</div>
+                        </div>
+                        <div style="text-align: center; padding: 15px; border: 2px solid #6366f1; border-radius: 8px;">
+                            <div style="font-weight: bold;">2²</div>
+                            <div style="font-size: 1.5rem; color: #6366f1;">4</div>
+                            <div style="font-size: 0.8rem;">Ends in 4</div>
+                        </div>
+                        <div style="text-align: center; padding: 15px; border: 2px solid #6366f1; border-radius: 8px;">
+                            <div style="font-weight: bold;">3²</div>
+                            <div style="font-size: 1.5rem; color: #6366f1;">9</div>
+                            <div style="font-size: 0.8rem;">Ends in 9</div>
+                        </div>
+                        <div style="text-align: center; padding: 15px; border: 2px solid #6366f1; border-radius: 8px;">
+                            <div style="font-weight: bold;">4²</div>
+                            <div style="font-size: 1.5rem; color: #6366f1;">16</div>
+                            <div style="font-size: 0.8rem;">Ends in 6</div>
+                        </div>
+                        <div style="text-align: center; padding: 15px; border: 2px solid #6366f1; border-radius: 8px;">
+                            <div style="font-weight: bold;">5²</div>
+                            <div style="font-size: 1.5rem; color: #6366f1;">25</div>
+                            <div style="font-size: 0.8rem;">Ends in 5</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="geometric-pattern" style="display: none;">
+                    <h3>Geometric Square Patterns</h3>
+                    
+                    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+                        <div style="text-align: center;">
+                            <div style="font-weight: bold; margin-bottom: 10px;">1² = 1</div>
+                            <div style="width: 20px; height: 20px; background: #8b5cf6; margin: 0 auto;"></div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-weight: bold; margin-bottom: 10px;">2² = 4</div>
+                            <div style="display: grid; grid-template-columns: repeat(2, 20px); gap: 1px; margin: 0 auto; width: fit-content;">
+                                <div style="width: 20px; height: 20px; background: #8b5cf6;"></div>
+                                <div style="width: 20px; height: 20px; background: #8b5cf6;"></div>
+                                <div style="width: 20px; height: 20px; background: #8b5cf6;"></div>
+                                <div style="width: 20px; height: 20px; background: #8b5cf6;"></div>
+                            </div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-weight: bold; margin-bottom: 10px;">3² = 9</div>
+                            <div style="display: grid; grid-template-columns: repeat(3, 20px); gap: 1px; margin: 0 auto; width: fit-content;">
+                                <div style="width: 20px; height: 20px; background: #8b5cf6;"></div>
+                                <div style="width: 20px; height: 20px; background: #8b5cf6;"></div>
+                                <div style="width: 20px; height: 20px; background: #8b5cf6;"></div>
+                                <div style="width: 20px; height: 20px; background: #8b5cf6;"></div>
+                                <div style="width: 20px; height: 20px; background: #8b5cf6;"></div>
+                                <div style="width: 20px; height: 20px; background: #8b5cf6;"></div>
+                                <div style="width: 20px; height: 20px; background: #8b5cf6;"></div>
+                                <div style="width: 20px; height: 20px; background: #8b5cf6;"></div>
+                                <div style="width: 20px; height: 20px; background: #8b5cf6;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Battle Game -->
+    <div id="battle-game" class="activity-page">
+        <div class="container">
+            <div class="activity-header">
+                <button class="back-btn" onclick="showDashboard()">🏠</button>
+                <h2>Square Root Battle</h2>
+            </div>
+            
+            <div class="activity-content">
+                <div class="game-area">
+                    <h3 style="margin-bottom: 30px;">Ready for Battle?</h3>
+                    <p style="color: #6b7280; margin-bottom: 40px;">
+                        Choose cards with higher square roots to win! Each round, the higher value wins the point.
+                    </p>
+                    <button class="btn btn-primary" onclick="startBattleGame()" style="padding: 20px 50px; font-size: 1.5rem;">
+                        Start Battle!
+                    </button>
+
+                    <div id="battle-arena" style="display: none; margin-top: 40px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 30px;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 1.5rem; font-weight: bold; color: #3b82f6;">0</div>
+                                <div>Your Score</div>
+                            </div>
+                            <div style="font-size: 1.2rem; font-weight: bold;">VS</div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 1.5rem; font-weight: bold; color: #ef4444;">0</div>
+                                <div>Computer Score</div>
+                            </div>
+                        </div>
+
+                        <div class="feedback success">
+                            <div style="font-size: 1.5rem; margin-bottom: 20px;">Battle simulation activated!</div>
+                            <div>Click cards to play against the computer. Higher square root values win!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem Solver -->
+    <div id="problem-solver" class="activity-page">
+        <div class="container">
+            <div class="activity-header">
+                <button class="back-btn" onclick="showDashboard()">🏠</button>
+                <h2>Real-World Problem Solver</h2>
+            </div>
+            
+            <div class="activity-content">
+                <div style="margin-bottom: 20px;">
+                    <button class="btn btn-primary" id="category-physics" onclick="setCategory('physics')" style="margin-right: 10px;">
+                        Physics
+                    </button>
+                    <button class="btn" id="category-architecture" onclick="setCategory('architecture')" style="margin-right: 10px;">
+                        Architecture
+                    </button>
+                    <button class="btn" id="category-technology" onclick="setCategory('technology')">
+                        Technology
+                    </button>
+                </div>
+
+                <div id="current-problem">
+                    <h3>Free Fall Motion</h3>
+                    
+                    <div class="feedback info" style="margin-bottom: 20px;">
+                        <strong>Problem:</strong> A ball is dropped from a 144-meter tall building. How long does it take to hit the ground? (Use g = 9.8 m/s², h = ½gt²)
+                    </div>
+
+                    <div class="input-group">
+                        <label>Your Answer:</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="number" id="problem-answer" step="0.1" placeholder="Enter your answer...">
+                            <span>seconds</span>
+                            <button class="btn btn-primary" onclick="checkProblemAnswer()">Check Answer</button>
+                        </div>
+                    </div>
+
+                    <div id="problem-feedback"></div>
+
+                    <button class="btn" onclick="newProblem()" style="margin-top: 20px;">New Problem</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Method Trainer -->
+    <div id="method-trainer" class="activity-page">
+        <div class="container">
+            <div class="activity-header">
+                <button class="back-btn" onclick="showDashboard()">🏠</button>
+                <h2>Method Mastery Trainer</h2>
+            </div>
+            
+            <div class="two-column">
+                <div class="activity-content">
+                    <h3>Training Settings</h3>
+                    
+                    <div class="input-group">
+                        <label>Method:</label>
+                        <select id="training-method">
+                            <option value="prime">Prime Factorization</option>
+                            <option value="estimation">Estimation Method</option>
+                            <option value="long">Long Division</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Difficulty:</label>
+                        <select id="training-difficulty">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="generateTrainingProblem()">Generate Problem</button>
+                </div>
+
+                <div class="activity-content">
+                    <h3>Current Problem: √<span id="training-number">144</span></h3>
+                    
+                    <div class="input-group">
+                        <label>Step 1:</label>
+                        <input type="text" id="step-1" placeholder="Show your first step...">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Step 2:</label>
+                        <input type="text" id="step-2" placeholder="Continue your work...">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Final Answer:</label>
+                        <input type="number" id="training-final" placeholder="Your final answer...">
+                    </div>
+
+                    <button class="btn btn-primary" onclick="checkTrainingWork()">Check My Work</button>
+
+                    <div class="feedback info" style="margin-top: 20px;">
+                        <strong>Expected approach:</strong><br>
+                        <span id="method-hint">Find prime factors, group into pairs, take one from each pair</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Detective -->
+    <div id="error-detective" class="activity-page">
+        <div class="container">
+            <div class="activity-header">
+                <button class="back-btn" onclick="showDashboard()">🏠</button>
+                <h2>Error Detective Agency</h2>
+            </div>
+            
+            <div class="activity-content">
+                <h3 style="margin-bottom: 30px;">🔍 Can you spot the error?</h3>
+                
+                <div class="feedback error" style="margin-bottom: 30px;">
+                    <h4 style="color: #dc2626; margin-bottom: 15px;">Suspicious Solution:</h4>
+                    <div style="background: white; padding: 20px; border-radius: 8px; font-family: monospace; font-size: 1.1rem;" id="error-example">
+                        √(16 + 9) = √16 + √9 = 4 + 3 = 7
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>What's wrong with this solution? Explain the error:</label>
+                    <textarea id="error-explanation" placeholder="Describe the mathematical error you found..." style="height: 100px; resize: vertical;"></textarea>
+                </div>
+
+                <button class="btn btn-primary" onclick="checkErrorAnalysis()">Submit Analysis</button>
+
+                <div id="error-feedback"></div>
+
+                <button class="btn" onclick="newErrorCase()" style="margin-top: 20px;">Investigate New Case</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Creative Studio -->
+    <div id="creative-studio" class="activity-page">
+        <div class="container">
+            <div class="activity-header">
+                <button class="back-btn" onclick="showDashboard()">🏠</button>
+                <h2>Creative Applications Studio</h2>
+            </div>
+            
+            <div class="two-column">
+                <div class="activity-content">
+                    <h3>Project Settings</h3>
+                    
+                    <div class="input-group">
+                        <label>Project Type:</label>
+                        <select id="creative-project">
+                            <option value="art">Digital Art Pattern</option>
+                            <option value="music">Musical Frequency Harmony</option>
+                            <option value="nature">Nature Photography Guide</option>
+                            <option value="architecture">Architectural Design</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Pattern Type:</label>
+                        <select id="creative-pattern">
+                            <option value="squares">Perfect Squares</option>
+                            <option value="roots">Square Roots</option>
+                            <option value="fibonacci">Fibonacci Squares</option>
+                            <option value="spiral">Golden Spiral</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Size/Complexity: <span id="creative-size-display">8</span></label>
+                        <input type="range" id="creative-size" min="4" max="12" value="8" oninput="updateCreativeSize()">
+                    </div>
+
+                    <button class="btn btn-primary" onclick="generateCreativeProject()">Generate Creative Project</button>
+                </div>
+
+                <div class="activity-content">
+                    <h3>Creative Output</h3>
+                    
+                    <div id="creative-output">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div id="art-grid" style="display: inline-grid; grid-template-columns: repeat(8, 25px); gap: 2px; padding: 20px; background: #f3f4f6; border-radius: 8px;">
+                                <!-- Art grid will be generated here -->
+                            </div>
+                        </div>
+                        
+                        <div class="feedback info">
+                            <strong>Mathematical Art:</strong> Perfect squares create beautiful patterns when visualized with color and spacing!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Global state
         let userProgress = {
@@ -799,21 +1261,37 @@
                     </div>
                 </div>
             `;
-            document.body.appendChild(popup);
-            setTimeout(() => document.body.removeChild(popup), 3000);
+            
+            if (document.body) {
+                document.body.appendChild(popup);
+                setTimeout(() => {
+                    if (document.body.contains(popup)) {
+                        document.body.removeChild(popup);
+                    }
+                }, 3000);
+            }
         }
 
         function updateProgressDisplay() {
-            document.getElementById('user-level').textContent = userProgress.level;
-            document.getElementById('user-xp').textContent = userProgress.xp % 100;
-            document.getElementById('progress-fill').style.width = `${(userProgress.xp % 100)}%`;
+            const levelEl = document.getElementById('user-level');
+            const xpEl = document.getElementById('user-xp');
+            const progressEl = document.getElementById('progress-fill');
+            
+            if (levelEl) levelEl.textContent = userProgress.level;
+            if (xpEl) xpEl.textContent = userProgress.xp % 100;
+            if (progressEl) progressEl.style.width = `${(userProgress.xp % 100)}%`;
         }
 
         function updateStatsDisplay() {
-            document.getElementById('squares-found').textContent = userProgress.stats.perfectSquaresFound;
-            document.getElementById('roots-calculated').textContent = userProgress.stats.squareRootsCalculated;
-            document.getElementById('estimations-attempted').textContent = userProgress.stats.estimationsAttempted;
-            document.getElementById('achievements-earned').textContent = userProgress.achievements.length;
+            const squaresEl = document.getElementById('squares-found');
+            const rootsEl = document.getElementById('roots-calculated');
+            const estimationsEl = document.getElementById('estimations-attempted');
+            const achievementsEl = document.getElementById('achievements-earned');
+            
+            if (squaresEl) squaresEl.textContent = userProgress.stats.perfectSquaresFound;
+            if (rootsEl) rootsEl.textContent = userProgress.stats.squareRootsCalculated;
+            if (estimationsEl) estimationsEl.textContent = userProgress.stats.estimationsAttempted;
+            if (achievementsEl) achievementsEl.textContent = userProgress.achievements.length;
         }
 
         // Navigation functions
@@ -821,15 +1299,19 @@
             document.querySelectorAll('.activity-page').forEach(page => {
                 page.classList.remove('active');
             });
-            document.getElementById(activityId).classList.add('active');
+            
+            const targetActivity = document.getElementById(activityId);
+            if (targetActivity) {
+                targetActivity.classList.add('active');
 
-            // Initialize activity-specific content
-            if (activityId === 'visual-builder') {
-                updateSquare();
-            } else if (activityId === 'square-detective') {
-                generateDetectiveNumber();
-            } else if (activityId === 'estimation-master') {
-                newEstimationChallenge();
+                // Initialize activity-specific content
+                if (activityId === 'visual-builder') {
+                    setTimeout(updateSquare, 100);
+                } else if (activityId === 'square-detective') {
+                    setTimeout(generateDetectiveNumber, 100);
+                } else if (activityId === 'estimation-master') {
+                    setTimeout(newEstimationChallenge, 100);
+                }
             }
         }
 
@@ -837,49 +1319,67 @@
             document.querySelectorAll('.activity-page').forEach(page => {
                 page.classList.remove('active');
             });
-            document.getElementById('dashboard').classList.add('active');
+            const dashboard = document.getElementById('dashboard');
+            if (dashboard) {
+                dashboard.classList.add('active');
+            }
         }
 
         // Visual Square Builder functions
         function updateSquare() {
-            const size = parseInt(document.getElementById('square-size').value);
-            document.getElementById('square-size-display').textContent = size;
-            document.getElementById('square-size-display-2').textContent = size;
+            const sizeEl = document.getElementById('square-size');
+            if (!sizeEl) return;
+            
+            const size = parseInt(sizeEl.value);
+            const display1 = document.getElementById('square-size-display');
+            const display2 = document.getElementById('square-size-display-2');
+            const infoEl = document.getElementById('square-info');
+            
+            if (display1) display1.textContent = size;
+            if (display2) display2.textContent = size;
             
             const area = size * size;
-            document.getElementById('square-info').innerHTML = `
-                <p><strong>${size}² = ${size} × ${size} = ${area}</strong></p>
-                <p>Area: ${area} square units</p>
-            `;
+            if (infoEl) {
+                infoEl.innerHTML = `
+                    <p><strong>${size}² = ${size} × ${size} = ${area}</strong></p>
+                    <p>Area: ${area} square units</p>
+                `;
+            }
 
             // Update visual
             const visual = document.getElementById('square-visual');
-            visual.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-            visual.innerHTML = '';
+            if (visual) {
+                visual.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+                visual.innerHTML = '';
 
-            for (let i = 1; i <= area; i++) {
-                const cell = document.createElement('div');
-                cell.className = 'square-cell';
-                const root = Math.sqrt(i);
-                if (root === Math.floor(root)) {
-                    cell.classList.add('perfect');
+                for (let i = 1; i <= area; i++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'square-cell';
+                    const root = Math.sqrt(i);
+                    if (root === Math.floor(root)) {
+                        cell.classList.add('perfect');
+                    }
+                    visual.appendChild(cell);
                 }
-                visual.appendChild(cell);
             }
 
             // Update pattern
-            if (document.getElementById('show-pattern').checked) {
+            const patternCheckbox = document.getElementById('show-pattern');
+            if (patternCheckbox && patternCheckbox.checked) {
                 updateOddPattern(size);
             }
         }
 
         function updateOddPattern(size) {
+            const oddSumEl = document.getElementById('odd-sum');
+            if (!oddSumEl) return;
+            
             const oddNumbers = [];
             for (let i = 1; i <= size; i++) {
                 oddNumbers.push(2 * i - 1);
             }
             const sum = oddNumbers.reduce((a, b) => a + b, 0);
-            document.getElementById('odd-sum').textContent = `${oddNumbers.join(' + ')} = ${sum}`;
+            oddSumEl.textContent = `${oddNumbers.join(' + ')} = ${sum}`;
         }
 
         function animateSquare() {
@@ -897,9 +1397,14 @@
             const patternInfo = document.getElementById('pattern-info');
             const checkbox = document.getElementById('show-pattern');
             
+            if (!patternInfo || !checkbox) return;
+            
             if (checkbox.checked) {
                 patternInfo.style.display = 'block';
-                updateOddPattern(parseInt(document.getElementById('square-size').value));
+                const sizeEl = document.getElementById('square-size');
+                if (sizeEl) {
+                    updateOddPattern(parseInt(sizeEl.value));
+                }
             } else {
                 patternInfo.style.display = 'none';
             }
@@ -909,9 +1414,14 @@
         function generateDetectiveNumber() {
             const numbers = [4, 9, 15, 16, 20, 25, 30, 36, 49, 50, 64, 75, 81, 100, 121, 144, 169, 196, 225];
             currentDetectiveNumber = numbers[Math.floor(Math.random() * numbers.length)];
-            document.getElementById('detective-number').textContent = currentDetectiveNumber;
-            document.getElementById('detective-feedback').innerHTML = '';
-            document.getElementById('detective-proof').style.display = 'none';
+            
+            const numberEl = document.getElementById('detective-number');
+            const feedbackEl = document.getElementById('detective-feedback');
+            const proofEl = document.getElementById('detective-proof');
+            
+            if (numberEl) numberEl.textContent = currentDetectiveNumber;
+            if (feedbackEl) feedbackEl.innerHTML = '';
+            if (proofEl) proofEl.style.display = 'none';
         }
 
         function checkPerfectSquare(userAnswer) {
@@ -924,7 +1434,7 @@
             if (userAnswer === isActuallyPerfect) {
                 detectiveScore += 10;
                 detectiveStreak++;
-                feedbackEl.innerHTML = '<div class="feedback success">Correct! 🎉</div>';
+                if (feedbackEl) feedbackEl.innerHTML = '<div class="feedback success">Correct! 🎉</div>';
                 addXP(15);
                 userProgress.stats.perfectSquaresFound++;
                 
@@ -937,26 +1447,33 @@
                 }
             } else {
                 detectiveStreak = 0;
-                feedbackEl.innerHTML = '<div class="feedback error">Not quite right. Try again!</div>';
+                if (feedbackEl) feedbackEl.innerHTML = '<div class="feedback error">Not quite right. Try again!</div>';
             }
             
             // Show proof
-            proofEl.innerHTML = `
-                <div class="feedback info">
-                    <strong>Proof:</strong><br>
-                    √${currentDetectiveNumber} = ${actualRoot.toFixed(3)}<br>
-                    ${isActuallyPerfect ? 
-                        `<span style="color: #10b981;">${actualRoot} × ${actualRoot} = ${currentDetectiveNumber} ✓</span>` :
-                        `<span style="color: #ef4444;">Not a whole number, so ${currentDetectiveNumber} is not a perfect square.</span>`
-                    }
-                </div>
-            `;
-            proofEl.style.display = 'block';
+            if (proofEl) {
+                proofEl.innerHTML = `
+                    <div class="feedback info">
+                        <strong>Proof:</strong><br>
+                        √${currentDetectiveNumber} = ${actualRoot.toFixed(3)}<br>
+                        ${isActuallyPerfect ? 
+                            `<span style="color: #10b981;">${actualRoot} × ${actualRoot} = ${currentDetectiveNumber} ✓</span>` :
+                            `<span style="color: #ef4444;">Not a whole number, so ${currentDetectiveNumber} is not a perfect square.</span>`
+                        }
+                    </div>
+                `;
+                proofEl.style.display = 'block';
+            }
             
             // Update display
-            document.getElementById('detective-score').textContent = detectiveScore;
-            document.getElementById('detective-streak').textContent = detectiveStreak;
-            document.getElementById('detective-total').textContent = userProgress.stats.perfectSquaresFound;
+            const scoreEl = document.getElementById('detective-score');
+            const streakEl = document.getElementById('detective-streak');
+            const totalEl = document.getElementById('detective-total');
+            
+            if (scoreEl) scoreEl.textContent = detectiveScore;
+            if (streakEl) streakEl.textContent = detectiveStreak;
+            if (totalEl) totalEl.textContent = userProgress.stats.perfectSquaresFound;
+            
             updateStatsDisplay();
         }
 
@@ -966,7 +1483,8 @@
             document.querySelectorAll('[id^="diff-"]').forEach(btn => {
                 btn.className = 'btn';
             });
-            document.getElementById(`diff-${level}`).className = 'btn btn-primary';
+            const targetBtn = document.getElementById(`diff-${level}`);
+            if (targetBtn) targetBtn.className = 'btn btn-primary';
             newEstimationChallenge();
         }
 
@@ -980,27 +1498,44 @@
             const range = ranges[estimationDifficulty];
             const number = Math.floor(Math.random() * (range[1] - range[0])) + range[0];
             
-            document.getElementById('estimation-number').textContent = number;
-            document.getElementById('estimation-input').value = '';
-            document.getElementById('estimation-feedback').innerHTML = '';
+            const numberEl = document.getElementById('estimation-number');
+            const inputEl = document.getElementById('estimation-input');
+            const feedbackEl = document.getElementById('estimation-feedback');
+            const hintEl = document.getElementById('estimation-hint');
+            
+            if (numberEl) numberEl.textContent = number;
+            if (inputEl) inputEl.value = '';
+            if (feedbackEl) feedbackEl.innerHTML = '';
             
             // Update hint
-            const lower = Math.floor(Math.sqrt(number));
-            const upper = lower + 1;
-            document.getElementById('estimation-hint').textContent = 
-                `For ${number}: ${lower}² = ${lower * lower} and ${upper}² = ${upper * upper}`;
+            if (hintEl) {
+                const lower = Math.floor(Math.sqrt(number));
+                const upper = lower + 1;
+                hintEl.textContent = `For ${number}: ${lower}² = ${lower * lower} and ${upper}² = ${upper * upper}`;
+            }
         }
 
         function checkEstimation() {
-            const number = parseInt(document.getElementById('estimation-number').textContent);
-            const userEstimate = parseFloat(document.getElementById('estimation-input').value);
+            const numberEl = document.getElementById('estimation-number');
+            const inputEl = document.getElementById('estimation-input');
+            const feedbackEl = document.getElementById('estimation-feedback');
+            const scoreEl = document.getElementById('estimation-score');
+            
+            if (!numberEl || !inputEl || !feedbackEl) return;
+            
+            const number = parseInt(numberEl.textContent);
+            const userEstimate = parseFloat(inputEl.value);
+            
+            if (isNaN(number) || isNaN(userEstimate)) {
+                feedbackEl.innerHTML = '<div class="feedback error">Please enter a valid number</div>';
+                return;
+            }
+            
             const actual = Math.sqrt(number);
             const difference = Math.abs(actual - userEstimate);
             
             const tolerances = { easy: 0.5, medium: 0.3, hard: 0.2 };
             const tolerance = tolerances[estimationDifficulty];
-            
-            const feedbackEl = document.getElementById('estimation-feedback');
             
             if (difference <= tolerance) {
                 estimationScore += 10;
@@ -1020,15 +1555,18 @@
                 userProgress.stats.estimationsAttempted++;
             }
             
-            document.getElementById('estimation-score').textContent = estimationScore;
+            if (scoreEl) scoreEl.textContent = estimationScore;
             updateStatsDisplay();
         }
 
         // Speed Arena functions
         function setSpeedMode(mode) {
             speedMode = mode;
-            document.getElementById('mode-squares').className = mode === 'squares' ? 'btn btn-primary' : 'btn';
-            document.getElementById('mode-roots').className = mode === 'roots' ? 'btn btn-primary' : 'btn';
+            const squareBtn = document.getElementById('mode-squares');
+            const rootBtn = document.getElementById('mode-roots');
+            
+            if (squareBtn) squareBtn.className = mode === 'squares' ? 'btn btn-primary' : 'btn';
+            if (rootBtn) rootBtn.className = mode === 'roots' ? 'btn btn-primary' : 'btn';
         }
 
         function startSpeedGame() {
@@ -1037,9 +1575,13 @@
             speedScore = 0;
             speedStreak = 0;
             
-            document.getElementById('speed-setup').style.display = 'none';
-            document.getElementById('speed-game').style.display = 'block';
-            document.getElementById('speed-results').style.display = 'none';
+            const setupEl = document.getElementById('speed-setup');
+            const gameEl = document.getElementById('speed-game');
+            const resultsEl = document.getElementById('speed-results');
+            
+            if (setupEl) setupEl.style.display = 'none';
+            if (gameEl) gameEl.style.display = 'block';
+            if (resultsEl) resultsEl.style.display = 'none';
             
             generateSpeedProblem();
             startSpeedTimer();
@@ -1055,13 +1597,26 @@
                 currentSpeedProblem = { question: `√${square}`, answer: Math.sqrt(square) };
             }
             
-            document.getElementById('speed-problem').textContent = `${currentSpeedProblem.question} = ?`;
-            document.getElementById('speed-input').value = '';
-            document.getElementById('speed-input').focus();
+            const problemEl = document.getElementById('speed-problem');
+            const inputEl = document.getElementById('speed-input');
+            
+            if (problemEl) problemEl.textContent = `${currentSpeedProblem.question} = ?`;
+            if (inputEl) {
+                inputEl.value = '';
+                inputEl.focus();
+            }
         }
 
         function checkSpeedAnswer() {
-            const userAnswer = parseInt(document.getElementById('speed-input').value);
+            const inputEl = document.getElementById('speed-input');
+            const scoreEl = document.getElementById('speed-score');
+            const streakEl = document.getElementById('speed-streak');
+            
+            if (!inputEl || !speedGameActive) return;
+            
+            const userAnswer = parseInt(inputEl.value);
+            
+            if (isNaN(userAnswer)) return;
             
             if (userAnswer === currentSpeedProblem.answer) {
                 speedScore += (10 + speedStreak);
@@ -1079,8 +1634,8 @@
                 speedStreak = 0;
             }
             
-            document.getElementById('speed-score').textContent = speedScore;
-            document.getElementById('speed-streak').textContent = speedStreak;
+            if (scoreEl) scoreEl.textContent = speedScore;
+            if (streakEl) streakEl.textContent = speedStreak;
             
             generateSpeedProblem();
         }
@@ -1088,7 +1643,8 @@
         function startSpeedTimer() {
             const timerInterval = setInterval(() => {
                 speedTimer--;
-                document.getElementById('speed-timer').textContent = `${speedTimer}s`;
+                const timerEl = document.getElementById('speed-timer');
+                if (timerEl) timerEl.textContent = `${speedTimer}s`;
                 
                 if (speedTimer <= 0) {
                     clearInterval(timerInterval);
@@ -1099,13 +1655,18 @@
 
         function endSpeedGame() {
             speedGameActive = false;
-            document.getElementById('speed-game').style.display = 'none';
-            document.getElementById('speed-results').style.display = 'block';
-            document.getElementById('final-score').textContent = speedScore;
+            const gameEl = document.getElementById('speed-game');
+            const resultsEl = document.getElementById('speed-results');
+            const finalScoreEl = document.getElementById('final-score');
+            
+            if (gameEl) gameEl.style.display = 'none';
+            if (resultsEl) resultsEl.style.display = 'block';
+            if (finalScoreEl) finalScoreEl.textContent = speedScore;
             
             setTimeout(() => {
-                document.getElementById('speed-setup').style.display = 'block';
-                document.getElementById('speed-results').style.display = 'none';
+                const setupEl = document.getElementById('speed-setup');
+                if (setupEl) setupEl.style.display = 'block';
+                if (resultsEl) resultsEl.style.display = 'none';
             }, 5000);
         }
 
@@ -1113,9 +1674,9 @@
         document.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 const activeElement = document.activeElement;
-                if (activeElement.id === 'speed-input' && speedGameActive) {
+                if (activeElement && activeElement.id === 'speed-input' && speedGameActive) {
                     checkSpeedAnswer();
-                } else if (activeElement.id === 'estimation-input') {
+                } else if (activeElement && activeElement.id === 'estimation-input') {
                     checkEstimation();
                 }
             }
@@ -1123,9 +1684,372 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            updateProgressDisplay();
-            updateStatsDisplay();
+            // Wait a bit for all elements to be ready
+            setTimeout(() => {
+                updateProgressDisplay();
+                updateStatsDisplay();
+                
+                // Initialize default values for activities
+                const defaultDifficulty = document.getElementById('diff-easy');
+                if (defaultDifficulty) defaultDifficulty.className = 'btn btn-primary';
+                
+                const defaultMode = document.getElementById('mode-squares');
+                if (defaultMode) defaultMode.className = 'btn btn-primary';
+                
+                // Initialize other activities
+                initializeActivities();
+            }, 100);
         });
+
+        function initializeActivities() {
+            // Calculator Workshop
+            const methodPrime = document.getElementById('method-prime');
+            if (methodPrime) methodPrime.className = 'btn btn-primary';
+            
+            // Construction Studio
+            const projectGarden = document.getElementById('project-garden');
+            if (projectGarden) projectGarden.className = 'btn btn-primary';
+            
+            // Pattern Explorer
+            const patternAlgebraic = document.getElementById('pattern-algebraic');
+            if (patternAlgebraic) patternAlgebraic.className = 'btn btn-primary';
+            
+            // Problem Solver
+            const categoryPhysics = document.getElementById('category-physics');
+            if (categoryPhysics) categoryPhysics.className = 'btn btn-primary';
+            
+            // Initialize creative studio
+            updateCreativeSize();
+            generateCreativeProject();
+        }
+
+        // Calculator Workshop functions
+        let currentMethod = 'prime';
+        
+        function setMethod(method) {
+            currentMethod = method;
+            document.querySelectorAll('[id^="method-"]').forEach(btn => {
+                btn.className = 'btn';
+            });
+            const targetBtn = document.getElementById(`method-${method}`);
+            if (targetBtn) targetBtn.className = 'btn btn-primary';
+            updateMethodDemo();
+        }
+
+        function updateMethodDemo() {
+            const numberEl = document.getElementById('target-number');
+            const titleEl = document.getElementById('method-title');
+            const stepsEl = document.getElementById('method-steps');
+            
+            if (!numberEl || !titleEl || !stepsEl) return;
+            
+            const number = parseInt(numberEl.value) || 144;
+            
+            const methods = {
+                prime: {
+                    name: 'Prime Factorization',
+                    steps: [
+                        `Find prime factors of ${number}`,
+                        `${number} = 2⁴ × 3² (example)`,
+                        'Group into pairs: (2²)² × (3¹)²',
+                        'Take one from each pair: 2² × 3 = 12',
+                        `√${number} = ${Math.sqrt(number)}`
+                    ]
+                },
+                long: {
+                    name: 'Long Division Method',
+                    steps: [
+                        `Group digits in pairs: ${number}`,
+                        'Find largest square ≤ first group',
+                        'Subtract and bring down next pair',
+                        'Double quotient and find next digit',
+                        `√${number} = ${Math.sqrt(number)}`
+                    ]
+                },
+                estimation: {
+                    name: 'Estimation Method',
+                    steps: [
+                        `Find perfect squares around ${number}`,
+                        `${Math.floor(Math.sqrt(number))}² and ${Math.ceil(Math.sqrt(number))}²`,
+                        `${Math.floor(Math.sqrt(number)) ** 2} < ${number} < ${Math.ceil(Math.sqrt(number)) ** 2}`,
+                        'Estimate position between these values',
+                        `√${number} ≈ ${Math.sqrt(number).toFixed(3)}`
+                    ]
+                }
+            };
+            
+            const method = methods[currentMethod];
+            titleEl.textContent = `${method.name} for √${number}`;
+            stepsEl.innerHTML = method.steps.map(step => `<li>${step}</li>`).join('');
+        }
+
+        // Construction Studio functions
+        let currentProject = 'garden';
+        
+        function setProject(project) {
+            currentProject = project;
+            document.querySelectorAll('[id^="project-"]').forEach(btn => {
+                btn.className = 'btn';
+            });
+            const targetBtn = document.getElementById(`project-${project}`);
+            if (targetBtn) targetBtn.className = 'btn btn-primary';
+        }
+
+        function calculateDimensions() {
+            const areaEl = document.getElementById('construction-area');
+            const sideLengthEl = document.getElementById('side-length');
+            const sideValueEl = document.getElementById('side-value');
+            const areaDisplayEl = document.getElementById('area-display');
+            
+            if (!areaEl) return;
+            
+            const area = parseFloat(areaEl.value) || 100;
+            const side = Math.sqrt(area);
+            
+            if (sideLengthEl) sideLengthEl.textContent = `${side.toFixed(2)} × ${side.toFixed(2)}`;
+            if (sideValueEl) sideValueEl.textContent = side.toFixed(2);
+            if (areaDisplayEl) areaDisplayEl.textContent = area;
+            
+            addXP(10);
+        }
+
+        // Pattern Explorer functions
+        let currentPattern = 'algebraic';
+        
+        function setPattern(pattern) {
+            currentPattern = pattern;
+            document.querySelectorAll('[id^="pattern-"]').forEach(btn => {
+                btn.className = 'btn';
+            });
+            const targetBtn = document.getElementById(`pattern-${pattern}`);
+            if (targetBtn) targetBtn.className = 'btn btn-primary';
+            
+            // Show/hide pattern sections
+            document.getElementById('algebraic-pattern').style.display = pattern === 'algebraic' ? 'block' : 'none';
+            document.getElementById('endings-pattern').style.display = pattern === 'endings' ? 'block' : 'none';
+            document.getElementById('geometric-pattern').style.display = pattern === 'geometric' ? 'block' : 'none';
+            
+            if (pattern === 'algebraic') {
+                updateAlgebraicPattern();
+            }
+        }
+
+        function updateAlgebraicPattern() {
+            const aEl = document.getElementById('pattern-a');
+            const bEl = document.getElementById('pattern-b');
+            const calcEl = document.getElementById('pattern-calculation');
+            const visualEl = document.getElementById('algebraic-visual');
+            
+            if (!aEl || !bEl || !calcEl) return;
+            
+            const a = parseInt(aEl.value) || 3;
+            const b = parseInt(bEl.value) || 2;
+            
+            const leftSide = (a + b) ** 2;
+            const rightSide = a**2 + 2*a*b + b**2;
+            
+            calcEl.innerHTML = `
+                <div>Left side: (${a}+${b})² = <strong>${leftSide}</strong></div>
+                <div>Right side: ${a}² + 2(${a})(${b}) + ${b}² = ${a**2} + ${2*a*b} + ${b**2} = <strong>${rightSide}</strong></div>
+            `;
+            
+            // Generate visual grid
+            if (visualEl) {
+                visualEl.style.gridTemplateColumns = `repeat(${a+b}, 20px)`;
+                visualEl.innerHTML = '';
+                
+                for (let i = 0; i < (a+b)**2; i++) {
+                    const row = Math.floor(i / (a+b));
+                    const col = i % (a+b);
+                    const cell = document.createElement('div');
+                    cell.style.width = '20px';
+                    cell.style.height = '20px';
+                    cell.style.border = '1px solid #6366f1';
+                    
+                    if (row < a && col < a) cell.style.background = '#3b82f6'; // a²
+                    else if (row < a || col < a) cell.style.background = '#eab308'; // ab terms
+                    else cell.style.background = '#ef4444'; // b²
+                    
+                    visualEl.appendChild(cell);
+                }
+            }
+        }
+
+        // Battle Game functions
+        function startBattleGame() {
+            const arenaEl = document.getElementById('battle-arena');
+            if (arenaEl) {
+                arenaEl.style.display = 'block';
+                addXP(15);
+            }
+        }
+
+        // Problem Solver functions
+        let currentCategory = 'physics';
+        
+        function setCategory(category) {
+            currentCategory = category;
+            document.querySelectorAll('[id^="category-"]').forEach(btn => {
+                btn.className = 'btn';
+            });
+            const targetBtn = document.getElementById(`category-${category}`);
+            if (targetBtn) targetBtn.className = 'btn btn-primary';
+        }
+
+        function checkProblemAnswer() {
+            const answerEl = document.getElementById('problem-answer');
+            const feedbackEl = document.getElementById('problem-feedback');
+            
+            if (!answerEl || !feedbackEl) return;
+            
+            const userAnswer = parseFloat(answerEl.value);
+            const correctAnswer = 5.4; // Example answer for the physics problem
+            
+            if (Math.abs(userAnswer - correctAnswer) <= 0.5) {
+                feedbackEl.innerHTML = '<div class="feedback success">Excellent! Your answer is correct! 🎉</div>';
+                addXP(25);
+                userProgress.stats.problemsSolved++;
+                updateStatsDisplay();
+            } else {
+                feedbackEl.innerHTML = `<div class="feedback error">Close! The correct answer is approximately ${correctAnswer} seconds.</div>`;
+            }
+        }
+
+        function newProblem() {
+            const answerEl = document.getElementById('problem-answer');
+            const feedbackEl = document.getElementById('problem-feedback');
+            
+            if (answerEl) answerEl.value = '';
+            if (feedbackEl) feedbackEl.innerHTML = '';
+            
+            addXP(5);
+        }
+
+        // Method Trainer functions
+        function generateTrainingProblem() {
+            const numberEl = document.getElementById('training-number');
+            const numbers = [16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225];
+            const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+            
+            if (numberEl) numberEl.textContent = randomNumber;
+            
+            // Clear previous work
+            const step1 = document.getElementById('step-1');
+            const step2 = document.getElementById('step-2');
+            const final = document.getElementById('training-final');
+            
+            if (step1) step1.value = '';
+            if (step2) step2.value = '';
+            if (final) final.value = '';
+        }
+
+        function checkTrainingWork() {
+            const finalEl = document.getElementById('training-final');
+            const numberEl = document.getElementById('training-number');
+            
+            if (!finalEl || !numberEl) return;
+            
+            const userAnswer = parseInt(finalEl.value);
+            const number = parseInt(numberEl.textContent);
+            const correctAnswer = Math.sqrt(number);
+            
+            if (userAnswer === correctAnswer) {
+                addXP(20);
+                if (userAnswer) {
+                    addAchievement('Method Master - Perfect calculation!');
+                }
+            }
+        }
+
+        // Error Detective functions
+        const errorCases = [
+            {
+                problem: "√(16 + 9) = √16 + √9 = 4 + 3 = 7",
+                error: "Assuming √(a + b) = √a + √b"
+            },
+            {
+                problem: "√144 = ±12",
+                error: "Including negative root for principal square root"
+            },
+            {
+                problem: "√50 = √25 × √2 = 5√2 ≈ 5 × 2 = 10",
+                error: "Calculating √2 as 2"
+            }
+        ];
+
+        let currentErrorCase = 0;
+
+        function checkErrorAnalysis() {
+            const explanationEl = document.getElementById('error-explanation');
+            const feedbackEl = document.getElementById('error-feedback');
+            
+            if (!explanationEl || !feedbackEl) return;
+            
+            const explanation = explanationEl.value;
+            
+            if (explanation.length > 10) {
+                feedbackEl.innerHTML = `
+                    <div class="feedback success" style="margin-top: 20px;">
+                        <h4>Great analysis!</h4>
+                        <p><strong>The Error:</strong> ${errorCases[currentErrorCase].error}</p>
+                        <p><strong>Your Analysis:</strong> ${explanation}</p>
+                    </div>
+                `;
+                addXP(20);
+            } else {
+                feedbackEl.innerHTML = '<div class="feedback error" style="margin-top: 20px;">Please provide a more detailed explanation.</div>';
+            }
+        }
+
+        function newErrorCase() {
+            currentErrorCase = (currentErrorCase + 1) % errorCases.length;
+            const exampleEl = document.getElementById('error-example');
+            const explanationEl = document.getElementById('error-explanation');
+            const feedbackEl = document.getElementById('error-feedback');
+            
+            if (exampleEl) exampleEl.textContent = errorCases[currentErrorCase].problem;
+            if (explanationEl) explanationEl.value = '';
+            if (feedbackEl) feedbackEl.innerHTML = '';
+        }
+
+        // Creative Studio functions
+        function updateCreativeSize() {
+            const sizeEl = document.getElementById('creative-size');
+            const displayEl = document.getElementById('creative-size-display');
+            
+            if (sizeEl && displayEl) {
+                displayEl.textContent = sizeEl.value;
+            }
+        }
+
+        function generateCreativeProject() {
+            const sizeEl = document.getElementById('creative-size');
+            const gridEl = document.getElementById('art-grid');
+            
+            if (!sizeEl || !gridEl) return;
+            
+            const size = parseInt(sizeEl.value) || 8;
+            gridEl.style.gridTemplateColumns = `repeat(${size}, 25px)`;
+            gridEl.innerHTML = '';
+            
+            for (let i = 1; i <= size * size; i++) {
+                const cell = document.createElement('div');
+                cell.style.width = '25px';
+                cell.style.height = '25px';
+                cell.style.border = '1px solid #d1d5db';
+                
+                const isPerfect = Math.sqrt(i) % 1 === 0;
+                const hue = (i * 137.5) % 360;
+                
+                cell.style.background = isPerfect 
+                    ? `hsl(${hue}, 70%, 50%)` 
+                    : `hsl(${hue}, 30%, 90%)`;
+                
+                gridEl.appendChild(cell);
+            }
+            
+            addXP(15);
+        }
     </script>
 </body>
 </html>
